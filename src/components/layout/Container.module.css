@@ -4,9 +4,9 @@
     justify-content: space-between;
     margin: 0 auto;
     flex-wrap: wrap;
-    background-color: red;
+    /* background-color: red;    */
 }
 
 .min-height {
-    min-height: 200px;
+    min-height: 400px;
 }
