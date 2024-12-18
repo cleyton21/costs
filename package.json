@@ -15,6 +15,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "backend": "json-server db.json -p 5000 -w",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
