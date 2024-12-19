@@ -6,7 +6,7 @@ import logo from '../../img/costs_logo.png';
 function Navbar() {
     return (
         <nav className={styles.navbar}>
-            <Container>
+            <Container customClass="navbar">
                 <Link to="/">
                     <img src={logo} alt="Costs" />
                 </Link>
@@ -28,7 +28,7 @@ function Navbar() {
                     </li>
                 </ul>
             </Container>
-      </nav>
+        </nav>
     );
 }
 
