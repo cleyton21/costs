@@ -1,7 +1,7 @@
 #!/bin/sh
 
-# Iniciar nginx em background
+echo "Iniciando nginx..."
 nginx
 
-# Iniciar json-server
-exec json-server --watch /app/db.json --port 5000 --host 0.0.0.0
+echo "Iniciando json-server na porta 5000..."
+cd /app && json-server --watch db.json --port 5000 --host 0.0.0.0 --no-cors
