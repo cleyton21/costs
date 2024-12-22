@@ -1,70 +1,149 @@
-# Getting Started with Create React App
+# Costs - Gerenciador de Projetos
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Sistema de gerenciamento de projetos e custos desenvolvido em React.
 
-## Available Scripts
+## 🚀 Funcionalidades
 
-In the project directory, you can run:
+- Criação e gerenciamento de projetos
+- Adição de serviços aos projetos
+- Controle de orçamento
+- Categorização de projetos
+- Interface responsiva e moderna
 
-### `npm start`
+## 💻 Tecnologias
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React
+- JSON Server (API REST)
+- React Router
+- React Icons
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📋 Pré-requisitos
 
-### `npm test`
+- Node.js (versão 18 ou superior)
+- npm ou yarn
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🔧 Instalação e Execução Manual
 
-### `npm run build`
+1. Clone o repositório:
+```bash
+git clone https://github.com/cleyton21/costs.git
+cd costs
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Instale as dependências:
+```bash
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Inicie o backend (JSON Server):
+```bash
+npm run backend
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. Em outro terminal, inicie o frontend:
+```bash
+npm start
+```
 
-### `npm run eject`
+O projeto estará disponível em:
+- Frontend: http://localhost:3000
+- API: http://localhost:5000
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🐳 Execução com Docker
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Pré-requisitos para Docker
+- Docker instalado na máquina
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Usando o Dockerfile
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Construa a imagem:
+```bash
+docker build -t costs .
+```
 
-## Learn More
+2. Execute o container:
+```bash
+docker run -p 3000:80 -p 5000:5000 costs
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+O projeto estará disponível em:
+- Frontend: http://localhost:3000
+- API: http://localhost:5000
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Comandos Docker Úteis
 
-### Code Splitting
+- Parar todos os containers:
+```bash
+docker stop $(docker ps -aq)
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Remover todos os containers:
+```bash
+docker rm $(docker ps -aq)
+```
 
-### Analyzing the Bundle Size
+- Remover a imagem:
+```bash
+docker rmi costs
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Ver logs do container:
+```bash
+docker logs [ID_DO_CONTAINER]
+```
 
-### Making a Progressive Web App
+## 📁 Estrutura do Projeto
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- `src/`: Código fonte do frontend
+- `src/components/`: Componentes React
+- `db.json`: Banco de dados do JSON Server
+- `public/`: Arquivos públicos
+- `Dockerfile`: Configuração para build com Docker
+- `nginx.conf`: Configuração do servidor nginx (usado com Docker)
 
-### Advanced Configuration
+## ⚙️ Variáveis de Ambiente
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+O projeto usa as seguintes variáveis de ambiente:
+- `REACT_APP_API_URL`: URL da API (padrão: http://localhost:5000)
 
-### Deployment
+## 📝 Configurações Adicionais
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Deploy Manual em Produção
 
-### `npm run build` fails to minify
+1. Gere o build de produção:
+```bash
+npm run build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+2. Configure um servidor web (nginx, Apache) para servir a pasta `build`
+
+3. Configure o JSON Server para produção:
+```bash
+npm install -g json-server
+json-server --watch db.json --port 5000 --host 0.0.0.0
+```
+
+### Usando PM2 (opcional)
+
+Para manter o servidor rodando em produção:
+
+```bash
+npm install -g pm2
+pm2 start "json-server --watch db.json --port 5000 --host 0.0.0.0" --name "costs-api"
+```
+
+## 🤝 Contribuindo
+
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## 📧 Contato
+
+Cleyton - [GitHub](https://github.com/cleyton21)
