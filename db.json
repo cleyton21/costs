@@ -8,8 +8,15 @@
         "id": "2",
         "name": "Desenvolvimento"
       },
-      "cost": 0,
-      "services": []
+      "cost": 1,
+      "services": [
+        {
+          "name": "dowfh",
+          "cost": "1",
+          "description": "fojo",
+          "id": "042ffa8d-305c-41f3-9c84-1d87df6cf603"
+        }
+      ]
     },
     {
       "id": "4675",

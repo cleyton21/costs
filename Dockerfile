@@ -1,5 +1,5 @@
-# Build stage for React frontend
-FROM node:18-alpine as frontend-build
+# Build stage
+FROM node:18-alpine as builder
 
 WORKDIR /app
 
@@ -7,41 +7,42 @@ WORKDIR /app
 RUN apk add --no-cache git
 RUN git clone https://github.com/cleyton21/costs.git .
 
-# Install dependencies and build frontend
+# Install dependencies and build
 RUN npm install
 RUN npm run build
 
-# Final stage
+# Production stage
 FROM node:18-alpine
 
 WORKDIR /app
 
-# Install nginx and supervisor
-RUN apk add --no-cache nginx supervisor
+# Install nginx
+RUN apk add --no-cache nginx
 
-# Copy frontend build
-COPY --from=frontend-build /app/build /usr/share/nginx/html
+# Copy built files from builder
+COPY --from=builder /app/build /usr/share/nginx/html
+COPY --from=builder /app/db.json /app/
+COPY --from=builder /app/package.json /app/
 
-# Copy backend files
-COPY --from=frontend-build /app/db.json /app/
-COPY --from=frontend-build /app/package.json /app/
-
-# Install json-server
+# Install json-server globally
 RUN npm install -g json-server
 
-# Copy configuration files
-COPY server.js /app/
+# Copy config files
 COPY nginx.conf /etc/nginx/http.d/default.conf
+COPY server.js /app/
 
-# Create directory for nginx
+# Create required nginx directory
 RUN mkdir -p /run/nginx
 
-# Create supervisor configuration
-RUN mkdir -p /etc/supervisor.d/
-COPY supervisord.conf /etc/supervisor.d/supervisord.ini
+# Create start script with proper error handling
+RUN echo '#!/bin/sh\n\
+echo "Starting nginx..."\n\
+nginx\n\
+echo "Starting json-server..."\n\
+cd /app && exec json-server --watch db.json --port 5000 --host 0.0.0.0' > /app/start.sh
 
-EXPOSE 80
+RUN chmod +x /app/start.sh
 
-ENV REACT_APP_API_URL=/api
+EXPOSE 80 5000
 
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor.d/supervisord.ini"]
+CMD ["/bin/sh", "/app/start.sh"]
