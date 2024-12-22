@@ -8,15 +8,8 @@
         "id": "2",
         "name": "Desenvolvimento"
       },
-      "cost": 10,
-      "services": [
-        {
-          "name": "Contratar dev PHP",
-          "cost": "10",
-          "description": "DEV",
-          "id": "2f1c1a51-0bd1-4026-a214-d2f8fab63cc1"
-        }
-      ]
+      "cost": 0,
+      "services": []
     },
     {
       "id": "4675",
@@ -26,51 +19,8 @@
         "id": "4",
         "name": "Planejamento"
       },
-      "cost": 1400,
-      "services": [
-        {
-          "name": "ndfoo",
-          "cost": "200",
-          "description": "mdsjp",
-          "id": "bba5ef31-a565-4e88-a890-bdf61f2b2093"
-        },
-        {
-          "name": "ndfoo",
-          "cost": "200",
-          "description": "mdsjp",
-          "id": "bba5ef31-a565-4e88-a890-bdf61f2b2093"
-        },
-        {
-          "name": "ndfoo",
-          "cost": "200",
-          "description": "mdsjp",
-          "id": "bba5ef31-a565-4e88-a890-bdf61f2b2093"
-        },
-        {
-          "name": "ndfoo",
-          "cost": "200",
-          "description": "mdsjp",
-          "id": "bba5ef31-a565-4e88-a890-bdf61f2b2093"
-        },
-        {
-          "name": "ndfoo",
-          "cost": "200",
-          "description": "mdsjp",
-          "id": "bba5ef31-a565-4e88-a890-bdf61f2b2093"
-        },
-        {
-          "name": "ndfoo",
-          "cost": "200",
-          "description": "mdsjp",
-          "id": "bba5ef31-a565-4e88-a890-bdf61f2b2093"
-        },
-        {
-          "name": "ndfoo",
-          "cost": "200",
-          "description": "mdsjp",
-          "id": "bba5ef31-a565-4e88-a890-bdf61f2b2093"
-        }
-      ]
+      "cost": 1200,
+      "services": []
     }
   ],
   "categories": [
