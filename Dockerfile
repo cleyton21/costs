@@ -7,7 +7,6 @@ COPY package*.json ./
 COPY db.json ./
 COPY src ./src
 COPY public ./public
-COPY middleware.js ./
 
 # Instalar dependências e json-server
 RUN npm install
