@@ -56,31 +56,19 @@ O projeto estará disponível em:
 
 ### Usando o Dockerfile
 
-1. Crie uma nova pasta e baixe os arquivos necessários:
+1. Crie uma nova pasta e baixe o Dockerfile:
 ```bash
 mkdir costs-docker
 cd costs-docker
-```
-
-2. Baixe o Dockerfile, nginx.conf e start.sh:
-```bash
-# Dockerfile
 curl -O https://raw.githubusercontent.com/cleyton21/costs/main/Dockerfile
-
-# nginx.conf
-curl -O https://raw.githubusercontent.com/cleyton21/costs/main/nginx.conf
-
-# start.sh
-curl -O https://raw.githubusercontent.com/cleyton21/costs/main/start.sh
-chmod +x start.sh
 ```
 
-3. Construa a imagem:
+2. Construa a imagem:
 ```bash
 docker build -t costs .
 ```
 
-4. Execute o container:
+3. Execute o container:
 ```bash
 docker run -p 3000:80 -p 5000:5000 costs
 ```
