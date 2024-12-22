@@ -19,8 +19,51 @@
         "id": "4",
         "name": "Planejamento"
       },
-      "cost": 0,
-      "services": []
+      "cost": 1400,
+      "services": [
+        {
+          "name": "ndfoo",
+          "cost": "200",
+          "description": "mdsjp",
+          "id": "bba5ef31-a565-4e88-a890-bdf61f2b2093"
+        },
+        {
+          "name": "ndfoo",
+          "cost": "200",
+          "description": "mdsjp",
+          "id": "bba5ef31-a565-4e88-a890-bdf61f2b2093"
+        },
+        {
+          "name": "ndfoo",
+          "cost": "200",
+          "description": "mdsjp",
+          "id": "bba5ef31-a565-4e88-a890-bdf61f2b2093"
+        },
+        {
+          "name": "ndfoo",
+          "cost": "200",
+          "description": "mdsjp",
+          "id": "bba5ef31-a565-4e88-a890-bdf61f2b2093"
+        },
+        {
+          "name": "ndfoo",
+          "cost": "200",
+          "description": "mdsjp",
+          "id": "bba5ef31-a565-4e88-a890-bdf61f2b2093"
+        },
+        {
+          "name": "ndfoo",
+          "cost": "200",
+          "description": "mdsjp",
+          "id": "bba5ef31-a565-4e88-a890-bdf61f2b2093"
+        },
+        {
+          "name": "ndfoo",
+          "cost": "200",
+          "description": "mdsjp",
+          "id": "bba5ef31-a565-4e88-a890-bdf61f2b2093"
+        }
+      ]
     }
   ],
   "categories": [
