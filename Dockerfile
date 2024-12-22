@@ -27,9 +27,6 @@ RUN mv build /usr/share/nginx/html
 COPY start.sh ./
 RUN chmod +x start.sh
 
-# Garantir que o db.json esteja no diretório correto
-RUN cp db.json /app/db.json
-
 EXPOSE 80 5000
 
 CMD ["./start.sh"]
