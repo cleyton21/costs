@@ -1,12 +1,12 @@
 FROM node:18-alpine
 
+# Instalar git
+RUN apk add --no-cache git
+
 WORKDIR /app
 
-# Copiar arquivos do projeto
-COPY package*.json ./
-COPY db.json ./
-COPY src ./src
-COPY public ./public
+# Clonar o repositório
+RUN git clone https://github.com/cleyton21/costs.git .
 
 # Instalar dependências e json-server
 RUN npm install
