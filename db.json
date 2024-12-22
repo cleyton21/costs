@@ -8,8 +8,15 @@
         "id": "2",
         "name": "Desenvolvimento"
       },
-      "cost": 0,
-      "services": []
+      "cost": 10,
+      "services": [
+        {
+          "name": "Contratar dev PHP",
+          "cost": "10",
+          "description": "DEV",
+          "id": "2f1c1a51-0bd1-4026-a214-d2f8fab63cc1"
+        }
+      ]
     },
     {
       "id": "4675",
