@@ -139,6 +139,14 @@ npm install -g pm2
 pm2 start "json-server --watch db.json --port 5000 --host 0.0.0.0" --name "costs-api"
 ```
 
+## 🌐 Hospedagem no Firebase
+
+Na branch `firebase`, estamos usando a hospedagem no Firebase Hosting e o banco de dados Firebase Realtime Database. O projeto está disponível em: [https://costs-5e42a.web.app/](https://costs-5e42a.web.app/).
+
+## 🎥 Créditos
+
+Este projeto foi desenvolvido com base na aula do YouTube do Matheus Battisti. Confira a série de vídeos no [YouTube](https://www.youtube.com/watch?v=FXqX7oof0I4&list=PLnDvRpP8BneyVA0SZ2okm-QBojomniQVO).
+
 ## 🤝 Contribuindo
 
 1. Faça um fork do projeto

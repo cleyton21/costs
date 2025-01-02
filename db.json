@@ -26,8 +26,15 @@
         "id": "4",
         "name": "Planejamento"
       },
-      "cost": 1200,
-      "services": []
+      "cost": 1300,
+      "services": [
+        {
+          "name": "teste",
+          "cost": "100",
+          "description": "teste2",
+          "id": "8694e5c2-9d0a-4374-afd7-8248cf34e74b"
+        }
+      ]
     }
   ],
   "categories": [

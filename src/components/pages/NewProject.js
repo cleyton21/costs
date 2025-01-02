@@ -1,7 +1,13 @@
 import { useNavigate } from "react-router-dom"; // para redirecionamentos
-
+import { initializeApp } from 'firebase/app';
+import { getDatabase, ref, push } from 'firebase/database';
+import firebaseConfig from '../../firebase.config.js';
 import ProjectForm from "../Project/ProjectForm";
 import styles from "./NewProject.module.css";
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
 
 function NewProject() {
 
@@ -12,16 +18,9 @@ function NewProject() {
         project.cost = 0;
         project.services = [];
 
-        fetch('http://localhost:5000/projects', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(project),
-        })
-            .then((resp) => resp.json())
-            .then((data) => {
-                console.log(data);
+        const projectsRef = ref(database, 'projects');
+        push(projectsRef, project)
+            .then(() => {
                 navigate('/projects', { state: { message: 'Projeto criado com sucesso!' } });
             })
             .catch((err) => console.log(err));
